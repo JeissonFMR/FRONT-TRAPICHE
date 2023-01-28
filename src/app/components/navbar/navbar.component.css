@@ -1,0 +1,11 @@
+.container {
+    background-color: rgb(0, 183, 255);
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    color: aliceblue;
+}
+
+h5 {
+    font-weight: 600;
+}

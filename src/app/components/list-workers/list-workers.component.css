@@ -1,0 +1,27 @@
+img {
+    width: 60px;
+    border-radius: 50%;
+}
+
+table,
+tr {
+    text-align: center;
+    color: white;
+    border: 1px solid black;
+}
+
+.btn-success {
+    margin-bottom: 10px;
+}
+
+.tittle {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1,
+h5 {
+    color: white;
+    font-weight: 600;
+}

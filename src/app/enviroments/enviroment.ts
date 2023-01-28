@@ -1,0 +1,4 @@
+export const enviroment = {
+    production: false,
+    api: 'http://localhost:3002/api/v1'
+}

@@ -1,0 +1,36 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="container">
+  <div class="tittle">
+    <h1>Listado de trabajadores</h1>
+    <button type="button" class="btn btn-success" routerLink="/add">Agregar trabajador</button>
+  </div>
+
+  <table *ngIf="listWorker.length > 0" class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Foto</th>
+        <th scope="col">Trabajo</th>
+        <th scope="col">Descripción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of listWorker" class="table-active">
+        <th>{{item.name}}</th>
+        <td>{{item.last_name}}</td>
+        <td>{{item.age}}</td>
+        <img src={{item.photo}} alt="">
+        <td>{{item.work}}</td>
+        <td>{{item.description}}</td>
+        <td>
+          <button [routerLink]="['/edit/', item.id]" type="button" class="btn btn-info">Editar</button>
+          <button (click)="deleteWork(item.id!)" type="button" class="btn btn-danger ms-2">ELiminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h5 *ngIf="listWorker.length === 0">No hay trabajadores para mostrar ...</h5>
+</div>
