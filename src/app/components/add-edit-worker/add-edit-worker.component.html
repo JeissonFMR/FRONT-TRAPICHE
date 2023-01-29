@@ -1,7 +1,7 @@
 <app-progress-bar *ngIf="loading"></app-progress-bar>
 <div class="total">
   <div class="container-banana">
-    <img src={{src}} class="imagen" alt="Imagen trabajador">
+    <img [src]="photoSelected || '../../../assets/imagenP.jpeg'" class="imagen" alt="Imagen trabajador">
     <div class="nombre-banana"><strong>Nombre: </strong>{{name_banana}}</div>
   </div>
 
@@ -10,38 +10,41 @@
       <div class="card-header text-center">{{operacion}} trabajador</div>
       <div class="card-body">
         <div class="form-group">
-          <form [formGroup]="form" (ngSubmit)="addWorker()">
+          <form [formGroup]="form" (ngSubmit)="addWorker(name, last_name, age, work, description)">
             <span *ngIf="form.get('name')?.hasError('required') && form.get('name')?.touched">El campo nombre
               es
               <strong>requerido</strong></span><br>
             <input [(ngModel)]="name_banana" formControlName="name" type="text" class="form-control"
-              id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre">
+              id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Escribe el nombre" #name>
 
             <span *ngIf="form.get('last_name')?.hasError('required') && form.get('last_name')?.touched">El campo
               apellido
               es <strong>requerido</strong></span>
             <input formControlName="last_name" type="text" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Escribe el apellido">
+              aria-describedby="emailHelp" placeholder="Escribe el apellido" #last_name>
 
             <span *ngIf="form.get('age')?.hasError('required') && form.get('age')?.touched">El campo edad es
               <strong>requerido</strong></span>
             <input formControlName="age" min="1" type="number" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Escribe la edad">
+              aria-describedby="emailHelp" placeholder="Escribe la edad" #age>
 
 
-            <input [(ngModel)]="src" formControlName="photo" type="text" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Link de la foto">
+            <!-- <input [(ngModel)]="src" formControlName="photo" type="text" class="form-control" id="exampleInputEmail1"
+              aria-describedby="emailHelp" placeholder="Link de la foto"> -->
+
+            <input type="file" name="" id="exampleInputEmail1" (change)="getFile($event)" #image>
+
 
             <span *ngIf="form.get('work')?.hasError('required') && form.get('work')?.touched">El campo de trabajo es
               <strong>requerido</strong></span>
             <input formControlName="work" type="text" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Escribe el oficio que realiza">
+              aria-describedby="emailHelp" placeholder="Escribe el oficio que realiza" #work>
 
             <span *ngIf="form.get('description')?.hasError('required') && form.get('description')?.touched">El campo
               descripción es
               <strong>requerido</strong></span>
             <input formControlName="description" type="text" class="form-control" id="exampleInputEmail1"
-              aria-describedby="emailHelp" placeholder="Descripción del oficio">
+              aria-describedby="emailHelp" placeholder="Descripción del oficio" #description>
 
 
             <div class="container-button">

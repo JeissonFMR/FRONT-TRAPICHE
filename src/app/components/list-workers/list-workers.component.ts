@@ -3,6 +3,7 @@ import { ToastrService } from 'ngx-toastr';
 import { WorkersService } from 'src/app/services/workers.service';
 import { WorkerModel } from '../../interfaces/workers';
 import Swal from 'sweetalert2'
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list-workers',
@@ -13,7 +14,7 @@ export class ListWorkersComponent {
   listWorker: WorkerModel[] = []
 
   loading: boolean = false;
-  constructor(private _workerService: WorkersService) {
+  constructor(private _workerService: WorkersService, private router: Router) {
 
   }
 
@@ -30,7 +31,7 @@ export class ListWorkersComponent {
           this.listWorker = data
           // console.log(data);
           this.loading = false
-        })
+        }, err => { console.log(err); })
 
     }, 500);
   }
@@ -39,7 +40,7 @@ export class ListWorkersComponent {
     console.log(id);
     this.loading = true
     this._workerService.deleteWorker$(id)
-      .subscribe(() => {
+      .subscribe((res) => {
         this.loading = false
         this.getListAllWorker()
         Swal.fire({
@@ -49,7 +50,7 @@ export class ListWorkersComponent {
           showConfirmButton: false,
           timer: 1000
         })
-      })
+      }, err => console.log(err))
   }
 
 }

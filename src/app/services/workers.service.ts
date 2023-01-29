@@ -17,6 +17,7 @@ export class WorkersService {
     return this.http.get(`${this.URL}/workers/`)
       .pipe(
         map(({ data }: any) => {
+          console.log(data);
           return data //TODO: DESESTRUCTURING DATA
         })
       )
@@ -26,8 +27,17 @@ export class WorkersService {
     return this.http.delete(`${this.URL}/workers/${id}`)
   }
 
-  saveWorker(worker: WorkerModel): Observable<any> {
-    return this.http.post(`${this.URL}/workers/`, worker)
+  saveWorker(name: string, last_name: string, age: string, work: string, description: string, photo: File): Observable<any> {
+
+    const body = new FormData();
+    body.append('image', photo);
+    body.append('name', name);
+    body.append('last_name', last_name);
+    body.append('age', age);
+    body.append('work', work);
+    body.append('description', description);
+
+    return this.http.post(`${this.URL}/workers/`, body)
   }
 
   //TODO: OARA EDITAR
@@ -40,10 +50,10 @@ export class WorkersService {
       )
   }
 
-  updateWorker(id: number, worker: WorkerModel): Observable<any> {
-    return this.http.put(`${this.URL}/workers/${id}`, worker)
+  updateWorker(id: number, name: string, last_name: string, age: string, work: string, description: string): Observable<any> {
+    return this.http.put(`${this.URL}/workers/${id}`, { name, last_name, age, work, description })
   }
 
-  //TODO: FIN EDITAR
+
 }
 

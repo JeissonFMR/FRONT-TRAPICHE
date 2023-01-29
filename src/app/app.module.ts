@@ -9,6 +9,7 @@ import { AddEditWorkerComponent } from './components/add-edit-worker/add-edit-wo
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ProgressBarComponent } from './shared/progress-bar/progress-bar.component';
+import { PhotoPreviewComponent } from './components/photo-preview/photo-preview.component';
 
 
 //toastr notify
@@ -21,6 +22,7 @@ import { ProgressBarComponent } from './shared/progress-bar/progress-bar.compone
     ListWorkersComponent,
     AddEditWorkerComponent,
     ProgressBarComponent,
+    PhotoPreviewComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AddEditWorkerComponent } from './components/add-edit-worker/add-edit-worker.component';
 import { ListWorkersComponent } from './components/list-workers/list-workers.component';
+import { PhotoPreviewComponent } from './components/photo-preview/photo-preview.component';
 
 const routes: Routes = [
   {
@@ -14,7 +15,7 @@ const routes: Routes = [
   },
   {
     path: 'edit/:id',
-    component: AddEditWorkerComponent
+    component: PhotoPreviewComponent
   },
   {
     path: '**',

@@ -1,0 +1,49 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div class="row" *ngIf="!worker; else main_content">
+    <h1>Cargando...</h1>
+</div>
+<ng-template #main_content>
+    <h1>Editar trabajador</h1>
+    <div class="container">
+        <div class="container-img">
+            <div class="card">
+                <img [src]="'http://localhost:3002/' + worker.photo" class="img-fluid">
+            </div>
+        </div>
+
+        <div class="container-form">
+            <form (submit)="updateWorker(name, last_name, age, work, description)">
+                <div class="name">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Escribe el nombre" [value]="worker.name" #name>
+                </div>
+                <div class="last-name">
+                    <input rows="2" class="form-control" placeholder="Photo's Description" [value]="worker.last_name"
+                        #last_name>
+                </div>
+
+                <div class="age">
+                    <input rows="2" class="form-control" type="number" placeholder="Photo's Description"
+                        [value]="worker.age" min="1" #age>
+                </div>
+
+                <div class="work">
+                    <input rows="2" class="form-control" placeholder="Photo's Description" [value]="worker.work" #work>
+                </div>
+
+                <div class="description">
+                    <input rows="2" class="form-control" placeholder="Photo's Description" [value]="worker.description"
+                        #description>
+                </div>
+
+                <div class="container-buttons">
+                    <button class="btn btn-primary btn-block">
+                        Actualizar
+                    </button>
+                    <button [routerLink]="['/']" type="button" class="btn btn-primary">Volver</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</ng-template>

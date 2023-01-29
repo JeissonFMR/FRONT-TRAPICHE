@@ -1,0 +1,43 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row;
+    padding-top: 10%;
+}
+
+.container-img {
+    width: 30%;
+    height: 30%;
+    filter: drop-shadow(3px 3px 3px white);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    filter: drop-shadow(3px 3px 3px white);
+}
+
+input {
+    width: 100%;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
+}
+
+.container-form {
+    width: 45%;
+    filter: drop-shadow(3px 3px 3px white);
+}
+
+.container-buttons {
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    margin: 10px;
+}
